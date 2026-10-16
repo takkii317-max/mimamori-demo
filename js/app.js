@@ -36,7 +36,9 @@
     target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></svg>',
     truck: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v9h-11zM13.5 9.5H18l3 3.4v2.6h-7.5"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>',
     walk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4.5" r="2"/><path d="m9 21 2.5-6.5L14 17v4M8 11l3-3.5 3.5 2 2.5 3M11.5 14.5 10.5 9"/></svg>',
-    leaf: '<svg viewBox="0 0 48 48" fill="none"><path d="M10 38C10 20 22 9 40 8c0 19-11 30-28 30" fill="#1F4D3A"/><path d="M10 38c6-9 13-15 22-20" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="35" cy="35" r="8" fill="#D9702E"/><path d="M31.5 35.2 34 37.5l4-4.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    leaf: '<svg viewBox="0 0 48 48" fill="none"><path d="M9.5 38.5c-1.2-15.5 9-28 26.5-29.2 2-.1 3.2 1 3.1 3C38 29 26.6 39.4 12.5 39.6c-1.6 0-2.9-.3-3-1.1z" fill="#3EB36D"/><path d="M12 36.5c5-8.2 11-14 19-19" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/><circle cx="35.5" cy="35.5" r="8.5" fill="#D9702E" stroke="#fff" stroke-width="2.5"/><path d="M31.8 35.7l2.6 2.5 4.3-4.6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    restart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4 4v4.5h4.5"/></svg>',
+    field: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l7-3 9 4-2 11-12 1z"/><path d="M6.5 11.5l11 .5M7 16l10 .5"/></svg>',
     clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
     shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6z"/></svg>',
     mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>',
@@ -50,10 +52,30 @@
   };
 
   // =========================================================
+  // 作業の種類
+  // =========================================================
+  const WI = {
+    inekari: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5V8"/><path d="M12 8c0-2.8 1.8-4.8 4.8-5.5-.2 3-2 5-4.8 5.5zM12 12.5c0-2.8-1.8-4.8-4.8-5.5.2 3 2 5 4.8 5.5zM12 17c0-2.8 1.8-4.8 4.8-5.5-.2 3-2 5-4.8 5.5z"/></svg>',
+    kusakari: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5c.6-4.5 1.8-7.5 4-10M8.5 20.5c0-4 .8-7 2.8-9.5M13 20.5c0-4.6-1-7.8-3.2-11M16.5 20.5c-.6-3.8.4-7 3.2-9.8M20 20.5c-.6-2.6-1.7-4.4-3.6-5.6"/><path d="M3 20.5h18"/></svg>',
+    taue: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.5V10"/><path d="M12 12c-3 0-5-2-5-5 3 0 5 2 5 5zM12 10c0-3 2-5 5-5 0 3-2 5-5 5z"/><path d="M3 19.5c2 1.4 4 1.4 6 0s4-1.4 6 0 4 1.4 6 0"/></svg>',
+    bojo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10h7v10a1.5 1.5 0 0 1-1.5 1.5h-4A1.5 1.5 0 0 1 8 20z"/><path d="M9.5 10V6.5h4V10M13.5 6.5h3M19 4.5l1.5-1M19.5 7.5h2M19 10.5l1.5 1"/></svg>',
+    mimawari: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c3.2 4 5.5 7 5.5 10a5.5 5.5 0 0 1-11 0c0-3 2.3-6 5.5-10z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg>',
+    shukaku: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h17l-1.6 9.2a1.6 1.6 0 0 1-1.6 1.3H6.7a1.6 1.6 0 0 1-1.6-1.3z"/><path d="M8 10l3-5.5M16 10l-3-5.5M9 14v3M12 14v3M15 14v3"/></svg>',
+    other: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="18" cy="12" r="1.8"/></svg>',
+  };
+  const WORKS = [
+    { id: 'inekari', name: '稲刈り' }, { id: 'kusakari', name: '草刈り' },
+    { id: 'taue', name: '田植え' }, { id: 'bojo', name: '農薬の散布' },
+    { id: 'mimawari', name: '見回り・水の管理' }, { id: 'shukaku', name: '野菜の収穫' },
+    { id: 'other', name: 'その他' },
+  ];
+  const workName = (id) => (WORKS.find((w) => w.id === id) || { name: '' }).name;
+
+  // =========================================================
   // 登場人物(すべて架空)
   // =========================================================
   const PEOPLE = {
-    taro: { name: '山田 太郎', short: '太郎', av: '太', color: '#1F4D3A', rel: '農家(見守られる人)' },
+    taro: { name: '山田 太郎', short: '太郎', av: '太', color: '#24804A', rel: '農家(見守られる人)' },
     taka: { name: '山田 孝', short: '孝', av: '孝', color: '#2F6FD6', rel: '息子' },
     yumi: { name: '中村 由美', short: '由美', av: '由', color: '#A9559A', rel: '娘' },
     sato: { name: '佐藤 健一', short: '佐藤', av: '佐', color: '#B7822A', rel: '近所の農家' },
@@ -92,7 +114,7 @@
   }
   // 畑の中を往復する歩き方(持ち歩いているときだけ使う)
   function fieldWalk(center) {
-    const pts = [], w = 0.0016, h = 0.0011, rows = 7;
+    const pts = [], w = 0.0008, h = 0.00034, rows = 6;
     for (let r = 0; r < rows; r++) {
       const y = center[1] - h / 2 + (h * r) / (rows - 1);
       const xs = r % 2 ? [center[0] + w / 2, center[0] - w / 2] : [center[0] - w / 2, center[0] + w / 2];
@@ -142,7 +164,24 @@
     share: { taka: true, yumi: true, sato: false },
     notifyPush: true, notifySms: true,
     watching: { taro: true, sato: true },
+    work: null, recGroup: 'month', editor: null,
+    fields: [],
   };
+  // 登録されている農地(はじめは2か所。マイページから追加・変更できる)
+  function rectAround(c, w, h) { return [[c[0] - w, c[1] - h], [c[0] + w, c[1] - h * 1.1], [c[0] + w * 1.05, c[1] + h], [c[0] - w * .95, c[1] + h * .9]]; }
+  S.fields = [
+    { id: 'east', name: PL.east.name, type: '田んぼ', coords: rectAround(PL.east.field, 0.00045, 0.0002) },
+    { id: 'south', name: PL.south.name, type: '畑', coords: rectAround(PL.south.field, 0.0004, 0.00022) },
+  ];
+  function fieldName(key) { const f = S.fields.find((x) => x.id === key); return f ? f.name : PL[key].name; }
+  function areaA(coords) {
+    if (!coords || coords.length < 3) return 0;
+    const lat0 = coords[0][1] * Math.PI / 180, kx = 111320 * Math.cos(lat0), ky = 110540;
+    let a = 0;
+    for (let i = 0; i < coords.length; i++) { const p = coords[i], q = coords[(i + 1) % coords.length]; a += p[0] * kx * q[1] * ky - q[0] * kx * p[1] * ky; }
+    return Math.abs(a) / 2 / 100; // アール
+  }
+  function centroid(coords) { const n = coords.length; return [coords.reduce((s, c) => s + c[0], 0) / n, coords.reduce((s, c) => s + c[1], 0) / n]; }
   const carrying = () => S.scenario === 'still' || S.carry;
 
   function stayPoint(key, t, t0) {
@@ -166,12 +205,12 @@
     if (S.scenario === 'late') endSouth = S.resolvedAt != null ? S.resolvedAt + 5 : Infinity;
     if (t < D1) return { p: home, place: '自宅', atHome: true, moving: false, signal: true };
     if (t < A1) return { p: along(legs.homeToEast, (t - D1) / (A1 - D1)), place: '移動中', moving: true, signal: true };
-    if (t < D2) { const s = stayPoint('east', t, A1); return { p: s.p, place: PL.east.name, moving: s.moving, signal: true }; }
+    if (t < D2) { const s = stayPoint('east', t, A1); return { p: s.p, place: fieldName('east'), moving: s.moving, signal: true }; }
     if (t < A2) return { p: along(legs.eastToSouth, (t - D2) / (A2 - D2)), place: '移動中', moving: true, signal: true };
     if (t < endSouth) {
       const s = stayPoint('south', t, A2);
       const lost = S.scenario === 'late' && t >= LOST && (S.resolvedAt == null || t < S.resolvedAt);
-      return { p: s.p, place: PL.south.name, moving: s.moving, signal: !lost };
+      return { p: s.p, place: fieldName('south'), moving: s.moving, signal: !lost };
     }
     if (t < endSouth + DRIVE3) return { p: along(legs.southToHome, (t - endSouth) / DRIVE3), place: '移動中', moving: true, signal: true };
     return { p: home, place: '自宅', atHome: true, moving: false, signal: true };
@@ -184,7 +223,7 @@
     Object.assign(S, {
       scenario: scn || S.scenario, t: T(6, 50), working: false, workStart: null, autoStarted: false, ended: false,
       track: [], dist: 0, pending: 0, lastFix: { t: T(6, 50), p: [PL.home.lng, PL.home.lat] }, lastPlace: '自宅',
-      events: [], alert: null, ask: null, respondedAt: null, resolvedAt: null,
+      events: [], alert: null, ask: null, respondedAt: null, resolvedAt: null, work: null,
     });
     clearOverlays();
     refresh(true);
@@ -248,14 +287,15 @@
       : `【はたけみまもり】${PEOPLE.taro.name}さんが${hm(S.returnTime)}を過ぎても帰宅していません。最後に確認できた場所:${lf}`;
   }
 
-  function startWork(t, auto, demoPress) {
+  function startWork(t, auto, demoPress, work) {
     S.working = true; S.workStart = t; S.autoStarted = !!auto;
+    S.work = auto ? null : (work || (demoPress ? 'inekari' : S.work));
     const cur = stateAt(t);
     S.track = [{ t, p: cur.p }]; S.lastFix = { t, p: cur.p };
-    addEvent(t, auto ? '押し忘れのため、自動で記録を開始' : '作業開始(記録を開始)');
+    addEvent(t, auto ? '押し忘れのため、自動で記録を開始' : `作業開始(${workName(S.work) || '記録を開始'})`);
     if (auto) notifyFor('farmer', 'info', '自動で記録を始めました', '作業開始が押されないまま家を出たので、記録を始めました。');
-    else if (demoPress) toast('(デモ)太郎さんが「作業開始」を押しました');
-    notifyFor('watcher', 'info', `${PEOPLE.taro.short}さんが作業を始めました`, `${hm(t)} 記録開始`);
+    else if (demoPress) toast(`(デモ)太郎さんが「${workName(S.work)}」を選んで作業開始を押しました`);
+    notifyFor('watcher', 'info', `${PEOPLE.taro.short}さんが${S.work ? workName(S.work) + 'を' : '作業を'}始めました`, `${hm(t)} 記録開始`);
     refresh();
   }
   function endWork(t, auto) {
@@ -335,21 +375,26 @@
     map.on('load', () => {
       map.addSource('track', { type: 'geojson', data: line([]) });
       map.addSource('ghost', { type: 'geojson', data: line([]) });
-      map.addLayer({ id: 'ghost', type: 'line', source: 'ghost', paint: { 'line-color': '#1F4D3A', 'line-width': 4, 'line-opacity': .25, 'line-dasharray': [1, 1.5] }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
+      map.addLayer({ id: 'ghost', type: 'line', source: 'ghost', paint: { 'line-color': '#24804A', 'line-width': 4, 'line-opacity': .25, 'line-dasharray': [1, 1.5] }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
       map.addLayer({ id: 'track-casing', type: 'line', source: 'track', paint: { 'line-color': '#ffffff', 'line-width': 9 }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
-      map.addLayer({ id: 'track', type: 'line', source: 'track', paint: { 'line-color': '#1F4D3A', 'line-width': 5 }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
-      placeLabels(map);
+      map.addLayer({ id: 'track', type: 'line', source: 'track', paint: { 'line-color': '#24804A', 'line-width': 5 }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
+      map.addSource('fields', { type: 'geojson', data: fieldsGeo(opts.exclude) });
+      map.addLayer({ id: 'fields-fill', type: 'fill', source: 'fields', paint: { 'fill-color': '#3EB36D', 'fill-opacity': .18 } }, 'ghost');
+      map.addLayer({ id: 'fields-line', type: 'line', source: 'fields', paint: { 'line-color': '#24804A', 'line-width': 2, 'line-dasharray': [2, 1.5] } }, 'ghost');
+      placeLabels(map, opts.exclude);
       api.ready = true; api.queue.forEach((f) => f()); api.queue = [];
     });
     return api;
   }
   const line = (coords) => ({ type: 'Feature', geometry: { type: 'LineString', coordinates: coords.length > 1 ? coords : [] }, properties: {} });
   function whenReady(api, f) { if (!api.map) return; if (api.ready) f(); else api.queue.push(f); }
-  function placeLabels(map) {
+  function fieldsGeo(exclude) {
+    return { type: 'FeatureCollection', features: S.fields.filter((f) => f.id !== exclude && f.coords.length >= 3).map((f) => ({ type: 'Feature', properties: { name: f.name }, geometry: { type: 'Polygon', coordinates: [f.coords.concat([f.coords[0]])] } })) };
+  }
+  function placeLabels(map, exclude) {
     const mk = (html, cls, p, anchor) => { const e = document.createElement('div'); e.className = cls; e.innerHTML = html; new maplibregl.Marker({ element: e, anchor: anchor || 'bottom' }).setLngLat(p).addTo(map); };
     mk(`${I.home}自宅`, 'mk-label home', [PL.home.lng, PL.home.lat], 'top');
-    mk(`${I.leaf.replace('48 48', '48 48').replace('<svg', '<svg width="14" height="14"')}${PL.east.name}`, 'mk-label', PL.east.field);
-    mk(`${I.leaf.replace('<svg', '<svg width="14" height="14"')}${PL.south.name}`, 'mk-label', PL.south.field);
+    S.fields.filter((f) => f.id !== exclude && f.coords.length >= 3).forEach((f) => mk(`${I.leaf.replace('<svg', '<svg width="14" height="14"')}${f.name}`, 'mk-label', centroid(f.coords)));
   }
   function setPerson(api, p, cls, lastLabel) {
     whenReady(api, () => {
@@ -511,6 +556,27 @@
     refresh(true);
   }
 
+  // 作業の種類を選ぶ(作業開始の前、または記録中に変更)
+  function openWorkPicker(changing) {
+    let sel = changing ? S.work : null;
+    const html = () => `
+      <h3>${changing ? '作業の種類を選ぶ' : '何の作業をしますか?'}</h3>
+      <p class="d">${changing ? '今の作業を選んでください。' : '作業を選んでから、記録を始めます。記録は作業ごとに分けて残ります。'}</p>
+      <div class="works">${WORKS.map((w) => `<button class="work" data-w="${w.id}" aria-pressed="${sel === w.id}"><span class="wi">${WI[w.id]}</span>${w.name}</button>`).join('')}</div>
+      <button class="btn primary block" style="margin-top:16px;font-size:18px;padding:18px" data-w-go ${sel ? '' : 'disabled'}>${changing ? I.check + 'この作業にする' : I.play + 'この作業で始める'}</button>
+      <button class="btn ghost block" style="margin-top:10px" data-w-cancel>やめる</button>`;
+    openSheet(html(), (sh) => sh.addEventListener('click', (e) => {
+      const w = e.target.closest('[data-w]');
+      if (w) { sel = w.dataset.w; sh.querySelectorAll('[data-w]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.w === sel)); sh.querySelector('[data-w-go]').disabled = false; return; }
+      if (e.target.closest('[data-w-cancel]')) { closeSheet(); return; }
+      if (e.target.closest('[data-w-go]') && sel) {
+        closeSheet();
+        if (changing) { S.work = sel; addEvent(S.t, `作業の種類:${workName(sel)}`); toast(`「${workName(sel)}」にしました`); refresh(true); }
+        else startWork(S.t, false, false, sel);
+      }
+    }));
+  }
+
   // =========================================================
   // 画面
   // =========================================================
@@ -523,7 +589,6 @@
     return `<div class="welcome">
       <div class="logo">${I.leaf}</div>
       <h1>はたけみまもり</h1>
-      <p class="lead">畑に出る家族の「もしも」に、すぐ気づける。<br>作業の記録と、見守りのアプリです。</p>
       <div class="grow"></div>
       <button class="role main" data-role="farmer"><span class="ric" style="color:var(--green-700)">${I.truck}</span><span><b>農家として使う</b><span>${PEOPLE.taro.name}さん としてログイン</span></span><span class="chev">${I.chev}</span></button>
       <button class="role" data-role="watcher"><span class="ric">${I.users}</span><span><b>見守る側として使う</b><span>息子の ${PEOPLE.taka.name}さん としてログイン</span></span><span class="chev">${I.chev}</span></button>
@@ -560,7 +625,8 @@
         <div class="top"><span class="tag"><i></i><span data-bind="f-tag">${off ? '電波なし:端末に保存中' : '記録中・家族に共有中'}</span></span><span class="chip" style="background:rgba(255,255,255,.16);color:#fff">${carrying() ? I.walk.replace('<svg', '<svg width="14" height="14"') + '持ち歩き' : I.truck.replace('<svg', '<svg width="14" height="14"') + '軽トラ'}</span></div>
         <div class="elapsed" data-bind="f-elapsed">${durShort(S.t - S.workStart)}</div>
         <div class="place" data-bind="f-place">${cur.place === '移動中' ? '移動しています' : `${cur.place}にいます`}</div>
-        ${S.autoStarted ? `<div class="auto">押し忘れていたので、${hm(S.workStart)}に自動で記録を始めました</div>` : ''}
+        <div style="margin-top:10px"><button class="work-chip" data-a="pickwork">${S.work ? WI[S.work] + workName(S.work) : I.plus + '作業の種類を選ぶ'}</button></div>
+        ${S.autoStarted ? `<div class="auto">押し忘れていたので、${hm(S.workStart)}に自動で記録を始めました${S.work ? '' : '。作業の種類は、あとから選べます'}</div>` : ''}
       </div>
       <div class="card rec-stats">
         <div class="stat"><b data-bind="f-start">${hm(S.workStart)}</b><span>開始</span></div>
@@ -583,7 +649,7 @@
         where: `最後に確認できた場所:${S.lastPlace}付近(${hm(S.lastFix.t)})`, mk: 'alert' };
     }
     if (S.working && !cur.signal) return { cls: '', chip: 'warn', chipText: '電波なし', main: '電波が届かない場所にいます', where: `最後に確認できた場所:${S.lastPlace}付近(${hm(S.lastFix.t)})`, mk: 'lost' };
-    if (S.working) return { cls: '', chip: 'live', chipText: '作業中', main: cur.place === '移動中' ? '移動しています' : `${cur.place}で作業中`, where: `${hm(S.workStart)}から作業中(${dur(S.t - S.workStart)})`, mk: '' };
+    if (S.working) return { cls: '', chip: 'live', chipText: '作業中', main: cur.place === '移動中' ? '移動しています' : `${cur.place}で${S.work ? workName(S.work) : '作業'}中`, where: `${hm(S.workStart)}から作業中(${dur(S.t - S.workStart)})`, mk: '' };
     if (S.ended) return { cls: '', chip: 'idle', chipText: '帰宅', main: '家にいます', where: `今日の作業は${dur((S.track.length ? S.track[S.track.length - 1].t : S.t) - S.workStart)}でした`, mk: '' };
     return { cls: '', chip: 'idle', chipText: '在宅', main: '家にいます', where: 'まだ作業を始めていません', mk: '' };
   }
@@ -635,56 +701,92 @@
   }
 
   // ---------- 記録 ----------
+  const WD = ['日', '月', '火', '水', '木', '金', '土'];
   const PAST = [
-    { date: '10月24日(土)', title: `${PL.east.name}・${PL.south.name}`, start: T(7, 20), end: T(17, 10), km: 11.2, legs: ['homeToEast', 'eastToSouth', 'southToHome'] },
-    { date: '10月23日(金)', title: PL.east.name, start: T(8, 0), end: T(12, 5), km: 6.3, legs: ['homeToEast'] },
-    { date: '10月22日(木)', title: PL.south.name, start: T(13, 10), end: T(16, 40), km: 7.4, legs: ['southToHome'] },
+    { m: 10, d: 24, work: 'inekari', at: ['east'], start: T(7, 20), end: T(16, 50), km: 6.3 },
+    { m: 10, d: 23, work: 'kusakari', at: ['south'], start: T(8, 0), end: T(11, 40), km: 7.4 },
+    { m: 10, d: 20, work: 'mimawari', at: ['east', 'south'], start: T(6, 30), end: T(7, 50), km: 11.2 },
+    { m: 9, d: 27, work: 'kusakari', at: ['east'], start: T(7, 50), end: T(11, 20), km: 6.3 },
+    { m: 9, d: 12, work: 'bojo', at: ['east'], start: T(6, 10), end: T(8, 30), km: 6.3 },
+    { m: 8, d: 30, work: 'mimawari', at: ['south'], start: T(17, 0), end: T(17, 50), km: 7.4 },
+    { m: 6, d: 14, work: 'taue', at: ['east'], start: T(7, 0), end: T(15, 30), km: 6.3 },
+    { m: 6, d: 13, work: 'taue', at: ['east'], start: T(7, 10), end: T(16, 0), km: 6.3 },
   ];
-  function pastCoords(d) { return d.legs.flatMap((k) => (k === 'homeToEast' ? legs.homeToEast.concat([...legs.homeToEast].reverse()) : legs[k])); }
+  const dateLabel = (m, d) => `${m}月${d}日(${WD[new Date(2026, m - 1, d).getDay()]})`;
+  function pastCoords(d) {
+    if (d.at.length > 1) return legs.homeToEast.concat(legs.eastToSouth, legs.southToHome);
+    if (d.at[0] === 'east') return legs.homeToEast.concat([...legs.homeToEast].reverse());
+    return [...legs.southToHome].reverse().concat(legs.southToHome);
+  }
+  // 今日+これまでの記録を、同じ形の一覧にする
+  function allRecords() {
+    const list = PAST.map((d, i) => ({ key: i, m: d.m, d: d.d, work: d.work, title: d.at.map(fieldName).join('・'), start: d.start, end: d.end, km: d.km, coords: pastCoords(d) }));
+    if (S.working || S.ended) {
+      const places = [...new Set(S.events.filter((e) => e.text.endsWith('に到着')).map((e) => e.text.replace('に到着', '')))];
+      list.unshift({ key: 'today', today: true, m: 10, d: 25, work: S.work, title: places.join('・') || '今日の作業', start: S.workStart, end: S.working ? null : (S.track.length ? S.track[S.track.length - 1].t : S.t), km: +(S.dist / 1000).toFixed(1), coords: S.track.map((x) => x.p) });
+    }
+    return list;
+  }
   function thumb(coords) {
-    if (coords.length < 2) return '<svg viewBox="0 0 74 74"><rect width="74" height="74" fill="#F1F6F1"/></svg>';
+    if (coords.length < 2) return '<svg viewBox="0 0 74 74"><rect width="74" height="74" fill="#EEF8F1"/></svg>';
     const xs = coords.map((c) => c[0]), ys = coords.map((c) => c[1]);
     const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
     const s = Math.max(maxX - minX, maxY - minY) || 1;
     const pts = coords.map((c) => `${(10 + ((c[0] - minX) / s) * 54).toFixed(1)},${(64 - ((c[1] - minY) / s) * 54).toFixed(1)}`).join(' ');
-    return `<svg viewBox="0 0 74 74"><rect width="74" height="74" fill="#F1F6F1"/><path d="M0 20h74M0 48h74M26 0v74M52 0v74" stroke="#E2EAE2"/><polyline points="${pts}" fill="none" stroke="#1F4D3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    return `<svg viewBox="0 0 74 74"><rect width="74" height="74" fill="#EEF8F1"/><path d="M0 20h74M0 48h74M26 0v74M52 0v74" stroke="#DCEBDF"/><polyline points="${pts}" fill="none" stroke="#24804A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   }
+  function dayCard(r) {
+    return `
+      <button class="card day-card" data-day="${r.key}">
+        <span class="day-thumb">${thumb(r.coords)}</span>
+        <span><span class="t">${r.today ? '今日 ' : ''}${dateLabel(r.m, r.d)}${r.today && S.working ? ' ・ 記録中' : ''}</span><b>${r.work ? workName(r.work) : '作業(種類なし)'}</b><span class="m">${r.title} ・ ${hm(r.start)}〜${r.end != null ? hm(r.end) : ''} ・ ${r.km}km</span></span>
+        <span class="chev">${I.chev}</span>
+      </button>`;
+  }
+  const minutesOf = (r) => (r.end != null ? r.end : S.t) - r.start;
   function vRecords() {
     const who = S.role === 'farmer' ? '' : `${PEOPLE.taro.short}さんの`;
-    const todayCoords = S.track.map((x) => x.p);
-    const today = (S.working || S.ended) ? `
-      <button class="card day-card" data-day="today">
-        <span class="day-thumb">${thumb(todayCoords)}</span>
-        <span><span class="t">今日 10月25日(日)${S.working ? ' ・ 記録中' : ''}</span><b>${S.lastPlace === '自宅' ? '今日の作業' : S.lastPlace}</b><span class="m">${hm(S.workStart)}〜${S.working ? '' : hm(S.track.length ? S.track[S.track.length - 1].t : S.t)} ・ ${(S.dist / 1000).toFixed(1)}km</span></span>
-        <span class="chev">${I.chev}</span>
-      </button>` : `<div class="card" style="margin:0 20px 12px;padding:16px;font-size:14px;color:var(--muted)">今日の記録はまだありません。作業を始めると、ここに経路が残ります。</div>`;
+    const recs = allRecords();
+    let body = '';
+    if (S.recGroup === 'month') {
+      const months = [...new Set(recs.map((r) => r.m))];
+      body = months.map((m) => {
+        const rs = recs.filter((r) => r.m === m);
+        const total = rs.reduce((a, r) => a + minutesOf(r), 0);
+        const works = [...new Set(rs.map((r) => workName(r.work)).filter(Boolean))];
+        return `<div class="grp-head"><span class="gi">${I.clock}</span><div><b>2026年${m}月</b><span>${rs.length}回 ・ 合計 ${dur(total)}${works.length ? ` ・ ${works.join('、')}` : ''}</span></div></div>${rs.map(dayCard).join('')}`;
+      }).join('');
+    } else {
+      const ids = WORKS.map((w) => w.id).filter((id) => recs.some((r) => r.work === id));
+      if (recs.some((r) => !r.work)) ids.push(null);
+      body = ids.map((id) => {
+        const rs = recs.filter((r) => r.work === id);
+        const total = rs.reduce((a, r) => a + minutesOf(r), 0);
+        return `<div class="grp-head"><span class="gi">${id ? WI[id] : I.info}</span><div><b>${id ? workName(id) : '種類なし'}</b><span>${rs.length}回 ・ 合計 ${dur(total)} ・ 最後 ${rs[0].m}月${rs[0].d}日</span></div></div>${rs.map(dayCard).join('')}`;
+      }).join('');
+    }
+    const empty = !(S.working || S.ended) ? `<div class="card" style="margin:14px 20px 0;padding:14px 16px;font-size:14px;color:var(--muted)">今日の記録はまだありません。作業を始めると、ここに経路が残ります。</div>` : '';
     return `<div class="view">
-      <div class="appbar"><h1>${who}記録<span class="sub">いつ、どこで、どれくらい作業したか</span></h1></div>
-      <div class="section pad">今日</div>
-      ${today}
-      <div class="section pad">これまで</div>
-      ${PAST.map((d, i) => `
-        <button class="card day-card" data-day="${i}">
-          <span class="day-thumb">${thumb(pastCoords(d))}</span>
-          <span><span class="t">${d.date}</span><b>${d.title}</b><span class="m">${hm(d.start)}〜${hm(d.end)} ・ ${d.km}km</span></span>
-          <span class="chev">${I.chev}</span>
-        </button>`).join('')}
+      <div class="appbar"><h1>${who}記録<span class="sub">いつ、どこで、どんな作業をしたか</span></h1></div>
+      <div class="rec-tools"><span class="seg wide"><button data-rg="month" aria-pressed="${S.recGroup === 'month'}">時期ごと</button><button data-rg="work" aria-pressed="${S.recGroup === 'work'}">作業ごと</button></span></div>
+      ${empty}
+      ${body}
       <div style="height:90px"></div>
     </div>`;
   }
   function dayData(key) {
-    if (key === 'today') return { title: '今日 10月25日(日)', pts: S.track.slice(), events: S.events.slice() };
+    if (key === 'today') return { title: `今日 ${dateLabel(10, 25)}`, work: S.work, pts: S.track.slice(), events: S.events.slice() };
     const d = PAST[key]; const coords = pastCoords(d); const n = coords.length; const span = d.end - d.start;
     return {
-      title: d.date, pts: coords.map((p, i) => ({ t: Math.round(d.start + (span * i) / Math.max(1, n - 1)), p })),
-      events: [{ t: d.start, text: '作業開始(記録を開始)' }, { t: d.start + 15, text: `${d.title.split('・')[0]}に到着` }, { t: d.end, text: '帰宅(記録を終了)' }],
+      title: dateLabel(d.m, d.d), work: d.work, pts: coords.map((p, i) => ({ t: Math.round(d.start + (span * i) / Math.max(1, n - 1)), p })),
+      events: [{ t: d.start, text: `作業開始(${workName(d.work)})` }, { t: d.start + 12, text: `${fieldName(d.at[0])}に到着` }, { t: d.end, text: '帰宅(記録を終了)' }],
     };
   }
   function vDetail() {
     const d = dayData(S.detail);
     const first = d.pts[0], last = d.pts[d.pts.length - 1];
     return `<div class="view">
-      <div class="appbar"><button class="icon-btn" data-a="back" aria-label="戻る">${I.back}</button><h1>${d.title}<span class="sub">${first ? `${hm(first.t)}〜${hm(last.t)}` : ''}</span></h1></div>
+      <div class="appbar"><button class="icon-btn" data-a="back" aria-label="戻る">${I.back}</button><h1>${d.title}${d.work ? `<span class="wtag">${WI[d.work].replace('<svg', '<svg width="13" height="13"')}${workName(d.work)}</span>` : ''}<span class="sub">${first ? `${hm(first.t)}〜${hm(last.t)}` : ''}</span></h1></div>
       <div class="detail-map"><div class="map" id="dmap"></div></div>
       <div class="card scrub">
         <div class="scrub-top">
@@ -713,6 +815,11 @@
       <div class="section pad">位置を見せる人</div>
       <div class="card group">${shareRows}
         <button class="item" data-a="add"><span class="ic">${I.plus}</span><span class="tx"><b>見せる人を追加</b><span>電話番号か招待コードで追加します</span></span><span class="chev">${I.chev}</span></button>
+      </div>
+      <div class="section pad">農地の登録</div>
+      <div class="card group">
+        ${S.fields.map((f) => `<button class="item" data-field="${f.id}"><span class="field-thumb">${fieldThumb(f.coords)}</span><span class="tx"><b>${f.name}</b><span>${f.type} ・ 約${Math.round(areaA(f.coords))}a</span></span><span class="chev">${I.chev}</span></button>`).join('')}
+        <button class="item" data-a="addfield"><span class="ic">${I.plus}</span><span class="tx"><b>農地を追加</b><span>地図の上で、畑の角を順番にタップして囲みます</span></span><span class="chev">${I.chev}</span></button>
       </div>
       <div class="section pad">見守りの設定</div>
       <div class="card group">
@@ -752,9 +859,97 @@
     </div>`;
   }
 
+  // ---------- 農地の登録(地図で囲む) ----------
+  function fieldThumb(coords) {
+    if (!coords || coords.length < 3) return '';
+    const xs = coords.map((c) => c[0]), ys = coords.map((c) => c[1]);
+    const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+    const sc = Math.max(maxX - minX, maxY - minY) || 1;
+    const pts = coords.map((c) => `${(8 + ((c[0] - minX) / sc) * 28).toFixed(1)},${(36 - ((c[1] - minY) / sc) * 28).toFixed(1)}`).join(' ');
+    return `<svg viewBox="0 0 44 44"><polygon points="${pts}" fill="#3EB36D" fill-opacity=".35" stroke="#24804A" stroke-width="2" stroke-linejoin="round"/></svg>`;
+  }
+  function openEditor(id) {
+    const f = id ? S.fields.find((x) => x.id === id) : null;
+    S.editor = { id: f ? f.id : null, pts: f ? f.coords.map((c) => c.slice()) : [], name: f ? f.name : '', type: f ? f.type : '畑' };
+    S.detail = null; refresh(true);
+  }
+  function vEditor() {
+    const e = S.editor, n = e.pts.length;
+    return `<div class="editor">
+      <div class="ed-map"><div class="map" id="emap"></div></div>
+      <div class="ed-top"><div class="ed-hint">${e.id ? `<b>${e.name}</b> の形を直せます。<br>` : ''}畑の<b>角</b>を、順番にタップしてください。<br>3か所以上で囲めます。</div></div>
+      <div class="ed-panel">
+        <div class="ed-count"><span>囲んだ角 <b data-bind="ed-n">${n}</b>か所</span><span data-bind="ed-a">${n >= 3 ? `約${Math.round(areaA(e.pts))}a` : ''}</span></div>
+        <div class="row2"><button class="btn soft" data-e="undo">1つ戻す</button><button class="btn ghost" data-e="clear">全部消す</button></div>
+        <button class="btn primary block" style="font-size:18px;padding:17px" data-e="next" ${n >= 3 ? '' : 'disabled'}>${I.check}囲み終わった</button>
+        <button class="btn ghost block" data-e="cancel">やめる</button>
+      </div>
+    </div>`;
+  }
+  function edGeo(pts) {
+    const feats = [];
+    if (pts.length >= 3) feats.push({ type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [pts.concat([pts[0]])] } });
+    if (pts.length >= 2) feats.push({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: pts.length >= 3 ? pts.concat([pts[0]]) : pts } });
+    return { type: 'FeatureCollection', features: feats };
+  }
+  function updateDraft() {
+    const api = views.emap, e = S.editor; if (!api || !e) return;
+    whenReady(api, () => {
+      api.map.getSource('draft').setData(edGeo(e.pts));
+      (api.ptMarkers || []).forEach((m) => m.remove());
+      api.ptMarkers = e.pts.map((p, i) => { const el = document.createElement('div'); el.className = 'mk-pt' + (i === 0 ? ' first' : ''); el.textContent = i + 1; return new maplibregl.Marker({ element: el }).setLngLat(p).addTo(api.map); });
+    });
+    const n = e.pts.length;
+    bind('ed-n', String(n));
+    bind('ed-a', n >= 3 ? `約${Math.round(areaA(e.pts))}a` : '');
+    const nx = $('[data-e="next"]'); if (nx) nx.disabled = n < 3;
+  }
+  function mountEditor(el) {
+    views.emap = makeMap(el, { zoom: 15, exclude: S.editor.id });
+    const api = views.emap;
+    whenReady(api, () => {
+      api.map.addSource('draft', { type: 'geojson', data: edGeo([]) });
+      api.map.addLayer({ id: 'draft-fill', type: 'fill', source: 'draft', filter: ['==', '$type', 'Polygon'], paint: { 'fill-color': '#D9702E', 'fill-opacity': .22 } });
+      api.map.addLayer({ id: 'draft-line', type: 'line', source: 'draft', filter: ['==', '$type', 'LineString'], paint: { 'line-color': '#D9702E', 'line-width': 3 }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
+      api.map.on('click', (ev) => { S.editor.pts.push([ev.lngLat.lng, ev.lngLat.lat]); updateDraft(); });
+      const e = S.editor;
+      const pts = e.pts.length ? e.pts : S.fields.flatMap((f) => f.coords).concat([[PL.home.lng, PL.home.lat]]);
+      const b = pts.reduce((bb, c) => bb.extend(c), new maplibregl.LngLatBounds(pts[0], pts[0]));
+      api.map.fitBounds(b, { padding: { top: 150, bottom: 300, left: 40, right: 40 }, maxZoom: 17, duration: 0 });
+      updateDraft();
+    });
+  }
+  function fieldSaveSheet() {
+    const e = S.editor;
+    let type = e.type, confirmDel = false;
+    openSheet(`
+      <h3>農地の名前</h3>
+      <p class="d">家族にも分かる名前にすると、「今どこにいるか」が伝わりやすくなります。</p>
+      <label class="lbl-sm" for="field-name">名前</label>
+      <input class="text-in" id="field-name" value="${e.name || ''}" placeholder="例:北の田んぼ、家の裏の畑">
+      <label class="lbl-sm">種類</label>
+      <span class="seg wide">${['田んぼ', '畑', 'その他'].map((t) => `<button data-ft="${t}" aria-pressed="${type === t}">${t}</button>`).join('')}</span>
+      <p class="d" style="margin:14px 0">広さ:約${Math.round(areaA(e.pts))}a</p>
+      <button class="btn primary block" style="font-size:18px;padding:17px" data-fs="save">${I.check}${e.id ? '変更を保存する' : 'この農地を登録する'}</button>
+      ${e.id ? '<button class="danger-link" data-fs="del">この農地を削除する</button>' : ''}`,
+      (sh) => sh.addEventListener('click', (ev) => {
+        const ft = ev.target.closest('[data-ft]');
+        if (ft) { type = ft.dataset.ft; sh.querySelectorAll('[data-ft]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.ft === type)); return; }
+        const fs = ev.target.closest('[data-fs]'); if (!fs) return;
+        if (fs.dataset.fs === 'del') {
+          if (!confirmDel) { confirmDel = true; fs.textContent = 'もう一度押すと削除します'; return; }
+          const nm = e.name; S.fields = S.fields.filter((x) => x.id !== e.id); S.editor = null; closeSheet(); S.tab = 'me'; refresh(true); toast(`「${nm}」を削除しました`); return;
+        }
+        const name = ($('#field-name', sh).value || '').trim() || '名前のない農地';
+        const rec = { id: e.id || ('f' + Date.now()), name, type, coords: e.pts.map((c) => c.slice()) };
+        if (e.id) S.fields = S.fields.map((x) => (x.id === e.id ? rec : x)); else S.fields.push(rec);
+        S.editor = null; closeSheet(); S.tab = 'me'; refresh(true); toast(`「${name}」を${e.id ? '保存' : '登録'}しました`);
+      }));
+  }
+
   // ---------- デモ操作 ----------
   function demoFab() {
-    if (!S.role) return '';
+    if (!S.role || S.editor) return '';
     return `<button class="demo-fab ${S.playing ? 'playing' : ''}" data-a="demo" aria-label="デモ操作を開く"><span class="pl">${S.playing ? I.pause : I.play}</span><span>デモ</span><span class="clk" data-bind="fab-clock">${hm(S.t)}</span></button>`;
   }
   function openDemo() {
@@ -796,18 +991,22 @@
     destroyMaps(); views = {};
     if (!S.role) { app.innerHTML = vWelcome(); layer.innerHTML = ''; return; }
     let html = '';
-    if (S.detail != null) html = vDetail();
+    if (S.editor) html = vEditor();
+    else if (S.detail != null) html = vDetail();
     else if (S.tab === 'home') html = S.role === 'farmer' ? vFarmerHome() : vWatcherHome();
     else if (S.tab === 'records') html = vRecords();
     else html = vMe();
-    app.innerHTML = html + tabbar();
+    app.innerHTML = html + (S.editor ? '' : tabbar());
     layer.querySelectorAll('.demo-fab').forEach((e) => e.remove());
     layer.insertAdjacentHTML('beforeend', demoFab());
+    layer.querySelectorAll('.restart').forEach((e) => e.remove());
+    layer.insertAdjacentHTML('beforeend', `<button class="restart" data-a="restart" aria-label="ホーム画面に戻る">${I.restart}やりなおす</button>`);
     mountMaps();
   }
 
   function mountMaps() {
-    const mini = $('#mini'), wmap = $('#wmap'), dmap = $('#dmap');
+    const mini = $('#mini'), wmap = $('#wmap'), dmap = $('#dmap'), emap = $('#emap');
+    if (emap) mountEditor(emap);
     if (mini) { views.mini = makeMap(mini, { zoom: 13, interactive: false }); }
     if (wmap) {
       views.wmap = makeMap(wmap, { zoom: 12.4 });
@@ -853,7 +1052,7 @@
     const w = $('[data-bind="r-where"]');
     if (w) {
       const near = (a, b) => haversine(a, b) < 260;
-      w.textContent = near(pt.p, [PL.home.lng, PL.home.lat]) ? '自宅付近' : near(pt.p, PL.east.field) || near(pt.p, [PL.east.lng, PL.east.lat]) ? `${PL.east.name}にいた` : near(pt.p, PL.south.field) || near(pt.p, [PL.south.lng, PL.south.lat]) ? `${PL.south.name}にいた` : '移動中';
+      w.textContent = near(pt.p, [PL.home.lng, PL.home.lat]) ? '自宅付近' : near(pt.p, PL.east.field) || near(pt.p, [PL.east.lng, PL.east.lat]) ? `${fieldName('east')}にいた` : near(pt.p, PL.south.field) || near(pt.p, [PL.south.lng, PL.south.lat]) ? `${fieldName('south')}にいた` : '移動中';
     }
   }
   let replayTimer = null;
@@ -874,7 +1073,7 @@
   let lastSig = '';
   function signature() {
     const cur = stateAt(S.t);
-    return [S.role, S.tab, S.detail, S.working, S.ended, cur.signal, cur.place, !!S.alert, S.alert && S.alert.stage, S.alert && S.alert.acked, S.autoStarted, S.scenario].join('|');
+    return [S.role, S.tab, S.detail, !!S.editor, S.work, S.recGroup, S.working, S.ended, cur.signal, cur.place, !!S.alert, S.alert && S.alert.stage, S.alert && S.alert.acked, S.autoStarted, S.scenario].join('|');
   }
   function refresh(force) {
     if (!S.role) return;
@@ -922,9 +1121,22 @@
   // =========================================================
   app.addEventListener('click', (e) => {
     const role = e.target.closest('[data-role]');
-    if (role) { S.role = role.dataset.role; S.tab = 'home'; resetDay(); setTimeout(() => toast('右下の「デモ」から時間を進められます'), 600); return; }
+    if (role) { enterWithSplash(role.dataset.role); return; }
     const tab = e.target.closest('[data-tab]');
-    if (tab) { S.tab = tab.dataset.tab; S.detail = null; refresh(true); $('.view') && ($('.view').scrollTop = 0); return; }
+    if (tab) { S.tab = tab.dataset.tab; S.detail = null; S.editor = null; refresh(true); $('.view') && ($('.view').scrollTop = 0); return; }
+    const ed = e.target.closest('[data-e]');
+    if (ed && S.editor) {
+      const k = ed.dataset.e;
+      if (k === 'undo') { S.editor.pts.pop(); updateDraft(); }
+      if (k === 'clear') { S.editor.pts = []; updateDraft(); }
+      if (k === 'next' && S.editor.pts.length >= 3) fieldSaveSheet();
+      if (k === 'cancel') { S.editor = null; S.tab = 'me'; refresh(true); }
+      return;
+    }
+    const fld = e.target.closest('[data-field]');
+    if (fld) { openEditor(fld.dataset.field); return; }
+    const rg = e.target.closest('[data-rg]');
+    if (rg) { S.recGroup = rg.dataset.rg; refresh(true); return; }
     const day = e.target.closest('[data-day]');
     if (day) { S.detail = day.dataset.day === 'today' ? 'today' : +day.dataset.day; refresh(true); return; }
     const st = e.target.closest('[data-step]');
@@ -941,7 +1153,9 @@
     }
     const a = e.target.closest('[data-a]'); if (!a) return;
     const act = a.dataset.a;
-    if (act === 'start') { if (!S.ended) startWork(S.t, false); else toast('今日の記録は終わっています。デモ操作から、最初からやり直せます'); }
+    if (act === 'start') { if (!S.ended) openWorkPicker(false); else toast('今日の記録は終わっています。デモ操作から、最初からやり直せます'); }
+    if (act === 'pickwork') openWorkPicker(true);
+    if (act === 'addfield') { openEditor(null); }
     if (act === 'end') openSheet(`
       <h3>作業を終えますか?</h3>
       <p class="d">記録を止めて、家族に「作業を終えた」と知らせます。家に帰ったときは、押さなくても自動で終わります。</p>
@@ -970,7 +1184,46 @@
     if (id === 'n-push') S.notifyPush = e.target.checked;
     if (id === 'n-sms') { S.notifySms = e.target.checked; toast(e.target.checked ? '反応がないときはSMSも送ります' : 'SMSは送りません'); }
   });
-  layer.addEventListener('click', (e) => { if (e.target.closest('[data-a="demo"]')) openDemo(); });
+  layer.addEventListener('click', (e) => {
+    if (e.target.closest('[data-a="demo"]')) openDemo();
+    if (e.target.closest('[data-a="restart"]')) restartHome();
+  });
+  // やりなおす:開いている画面や確認をすべて閉じて、ホーム画面に戻る(作業の記録は止めない)
+  function restartHome() {
+    if (!S.role) return;
+    closeSheet();
+    layer.querySelectorAll('.full-alert,.banner,.toast').forEach((x) => x.remove());
+    if (replayTimer) { clearInterval(replayTimer); replayTimer = null; }
+    S.tab = 'home'; S.detail = null; S.editor = null;
+    refresh(true);
+    const v = $('.view'); if (v) v.scrollTop = 0;
+    toast(S.working ? 'ホーム画面に戻りました(記録は続いています)' : 'ホーム画面に戻りました');
+    if (S.role === 'watcher' && S.alert) setTimeout(showWatcherAlert, 900);
+    if (S.role === 'farmer' && S.ask) setTimeout(showFarmerAsk, 900);
+  }
 
   render();
+
+  // 役割を選んだあと:起動画面(アイコン)を見せてから、ホワイトアウトしてホーム画面へ
+  let entering = false;
+  function enterWithSplash(role) {
+    if (entering) return; entering = true;
+    const sp = document.getElementById('splash'), wo = document.getElementById('whiteout');
+    const go = () => { S.role = role; S.tab = 'home'; resetDay(); };
+    if (!sp || !wo) { go(); entering = false; return; }
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // 起動画面のアニメーションを最初から再生する
+    const fresh = sp.cloneNode(true); sp.replaceWith(fresh); fresh.hidden = false;
+    wo.hidden = false; wo.classList.remove('on', 'off');
+    setTimeout(() => {
+      wo.classList.add('on');
+      setTimeout(() => {
+        go();
+        fresh.hidden = true;
+        wo.classList.add('off');
+        requestAnimationFrame(() => requestAnimationFrame(() => wo.classList.remove('on')));
+        setTimeout(() => { wo.hidden = true; wo.classList.remove('off'); entering = false; toast('右下の「デモ」から時間を進められます'); }, 650);
+      }, reduce ? 50 : 750);
+    }, reduce ? 500 : 1800);
+  }
 })();
