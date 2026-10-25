@@ -1,7 +1,7 @@
 {
   "name": "はたけみまもり",
   "short_name": "みまもり",
-  "description": "農家の安心をつくる、もしもに気づけるつながり(デモ版)",
+  "description": "農家の安心をつくる、もしもに気づけるつながり(試作・画面イメージ)",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
